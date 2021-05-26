@@ -1,5 +1,5 @@
 # cron-dynamically
-A lab for manage the cron job by Yaml file using the package `node-cron`.
+A lab for managing the cron job by Yaml file using the package `node-cron`.
 
 ### Example logs
 ```bash
