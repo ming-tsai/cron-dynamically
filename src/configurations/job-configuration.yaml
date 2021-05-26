@@ -1,0 +1,6 @@
+- name: hello-word
+  schedule: '*/1 * * * *'
+  isEnabled: true
+- name: typing-somethings
+  schedule: '*/3 * * * *'
+  isEnabled: true

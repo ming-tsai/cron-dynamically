@@ -1,0 +1,45 @@
+{
+  "name": "cron-dynamically",
+  "version": "1.0.0",
+  "description": "A lab for load the cron schedule job dynamically",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.ts",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ming-tsai/cron-dynamically.git"
+  },
+  "keywords": [
+    "cron",
+    "dynamically",
+    "yaml"
+  ],
+  "author": "Ming Tsai <ming.jia1213@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ming-tsai/cron-dynamically/issues"
+  },
+  "homepage": "https://github.com/ming-tsai/cron-dynamically#readme",
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "dotenv": "^10.0.0",
+    "fs": "0.0.1-security",
+    "js-yaml": "^4.1.0",
+    "node-cron": "^3.0.0",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.2.4",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/js-yaml": "^4.0.1",
+    "@types/node": "^15.6.1",
+    "@types/node-cron": "^2.0.3",
+    "@types/uuid": "^8.3.0"
+  }
+}
