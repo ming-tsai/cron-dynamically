@@ -18,6 +18,8 @@ Wed May 26 2021 16:01:00 GMT-0400 (Bolivia Time) 1127ffe3-7bae-4397-a61e-4b68027
 File has been modified
 The task typing-somethings has started
 File has been modified
+Wed May 26 2021 16:02:00 GMT-0400 (Bolivia Time) dde382d8-ffa9-4b7a-b0d0-770515e872e8 */2 * * * * typing somethings
+Wed May 26 2021 16:02:00 GMT-0400 (Bolivia Time) 1127ffe3-7bae-4397-a61e-4b6802785b81 */1 * * * * Hello Word
 ```
 
 ## License
