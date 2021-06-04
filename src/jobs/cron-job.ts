@@ -1,16 +1,17 @@
-import { ScheduledTask } from 'node-cron';
-import { getuid } from 'process';
-import {v4 as uuidv4} from 'uuid';
+import { ScheduledTask, ScheduleOptions } from 'node-cron';
+import { JobStatus } from '../models/job-status';
 
 export class CronJob {
-    status: string = 'NotStarted';
+    status: JobStatus = JobStatus.NotStarted;
     name: string = 'cron-job';
     schedule: string = '* * * * *';
     task: ScheduledTask | undefined;
-    protected id: string;
+    options: ScheduleOptions = {
+        scheduled: false
+    }
 
+    protected id: string = '';
     constructor() {
-        this.id = uuidv4();
     }
 
     setSchedule(cronExpression: string): void {
@@ -20,23 +21,37 @@ export class CronJob {
 
     start(): void {
         if (this.task && !this.isStarted()) {
-            this.status = 'Started';
+            this.status = JobStatus.Started;
             this.task.start();
         }
     }
 
     stop(): void {
         if (this.task && this.isStarted()) {
-            this.status = 'Stopped';
+            this.status = JobStatus.Stopped;
             this.task.stop();
         }
     }
 
     isStarted(): boolean {
-        return this.status === 'Started';
+        return this.status === JobStatus.Started;
     }
 
     protected getTask(cronExpression: string): ScheduledTask {
+        throw new Error('Method not implemented.');
+    }
+
+    /**
+     * Action that will call on the schedule job
+     */
+    protected setAction(): void {
+        throw new Error('Method not implemented.');
+    }
+
+    /**
+     * Asynchronous action that will call on the schedule job
+     */
+    protected async setAsyncAction(): Promise<void> {
         throw new Error('Method not implemented.');
     }
 }
