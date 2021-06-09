@@ -1,11 +1,13 @@
-import { ScheduledTask, ScheduleOptions } from 'node-cron';
+import cron, { ScheduledTask, ScheduleOptions } from 'node-cron';
 import { JobStatus } from '../models/job-status';
+import { v4 as uuidv4 } from 'uuid';
 
 export class CronJob {
     status: JobStatus = JobStatus.NotStarted;
     name: string = 'cron-job';
     schedule: string = '* * * * *';
     task: ScheduledTask | undefined;
+    isAsync: boolean = false;
     options: ScheduleOptions = {
         scheduled: false
     }
@@ -38,7 +40,10 @@ export class CronJob {
     }
 
     protected getTask(cronExpression: string): ScheduledTask {
-        throw new Error('Method not implemented.');
+        this.id = uuidv4();
+        return this.isAsync ?
+            cron.schedule(cronExpression, async () => await this.setAsyncAction(), this.options) :
+            cron.schedule(cronExpression, () => this.setAction(), this.options);
     }
 
     /**
